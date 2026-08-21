@@ -1,0 +1,6 @@
+# Questa cartella ospita solo la pagina di download: i binari viaggiano
+# come allegati dei Rilasci, non come file del repository.
+*.exe
+*.msi
+*.zip
+note-rilascio.md
