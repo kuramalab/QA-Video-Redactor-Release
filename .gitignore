@@ -1,5 +1,5 @@
-# Questa cartella ospita solo la pagina di download: i binari viaggiano
-# come allegati dei Rilasci, non come file del repository.
+# This repository hosts the download page only: binaries travel as release
+# assets, never as files in the tree.
 *.exe
 *.msi
 *.zip

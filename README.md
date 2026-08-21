@@ -1,72 +1,88 @@
 # QA Video Redactor
 
-Oscura automaticamente i dati personali nei video: email, telefoni, IBAN, codici
-fiscali, indirizzi, nomi e — su richiesta — volti e documenti.
+Automatically blurs personal data in videos: email addresses, phone numbers,
+IBANs, tax codes, postal addresses, names — and, on request, faces and documents.
 
-Tutto avviene **sul tuo computer**: nessun video viene caricato da nessuna parte.
+Everything runs **on your own computer**. No video is ever uploaded anywhere.
 
 ## Download
 
-**[Scarica l'ultima versione](https://github.com/kuramalab/QA-Video-Redactor-Release/releases/latest)**
+**[Get the latest release](https://github.com/kuramalab/QA-Video-Redactor-Release/releases/latest)**
 
-L'installatore pesa pochi MB. Al primo avvio l'applicazione riconosce il
-computer e scarica i componenti adatti: circa 2,5 GB con una scheda NVIDIA
-(elaborazione accelerata), circa 350 MB senza.
+The installer is only a few megabytes. On first launch the app detects your
+hardware and downloads what it needs: about 2.5 GB with an NVIDIA card
+(GPU-accelerated) or about 350 MB without.
 
-## Come funziona
+## How it works
 
-1. **Scegli il video** — il risultato viene salvato accanto all'originale, come
-   `nomefile_blur1.mp4`.
-2. **Indica cosa oscurare** — categorie di dati personali e termini specifici.
-3. **Regola il motore** — precisione, stile dell'offuscamento, margine.
-4. **Elaborazione** — l'intelligenza artificiale legge i fotogrammi; quelli
-   identici al precedente vengono saltati, così anche i computer senza scheda
-   dedicata restano utilizzabili.
-5. **Esito** — anteprima, registro dei dati trovati con timecode e verdetto
-   della verifica.
+1. **Pick a video** — the result is saved next to the original as
+   `filename_blur1.mp4`, with a counter so nothing is ever overwritten.
+2. **Choose what to hide** — categories of personal data plus your own terms.
+3. **Tune the engine** — analysis precision, blur style, safety margin.
+4. **Processing** — a neural network reads the frames; frames identical to the
+   previous one are skipped, which keeps the tool usable on machines without a
+   dedicated GPU.
+5. **Result** — preview, a log of every detection with its timecode, and the
+   verification verdict.
 
-Al termine una **verifica automatica** rilegge il video prodotto e segnala
-qualunque dato ancora leggibile: è ciò che rende il file consegnabile senza
-controlli manuali.
+Three mechanisms work together so nothing slips through:
 
-## Requisiti
+- **Recognition** — OCR on sampled frames plus rules for personal data.
+- **Learning** — from the data it finds, the engine derives the underlying
+  secrets (for example the local part of an email address) and re-checks every
+  piece of text against them, prefixes included. That is what covers a value
+  while it is still being typed, character by character.
+- **Scene memory** — the video is split into scenes; once a sensitive area is
+  found, it stays masked for the whole scene, and short gaps such as cross-fades
+  are closed automatically.
 
-| | Minimo | Consigliato |
+When processing ends, an **automatic verification pass** re-reads the finished
+video with OCR and reports anything still legible. That is what makes the file
+deliverable without a manual review.
+
+## Requirements
+
+| | Minimum | Recommended |
 |---|---|---|
-| Sistema | Windows 10 a 64 bit (build 1809 o successiva) | Windows 11 |
-| Processore | x86-64 con AVX2, 4 core | 8 core o più |
-| Memoria | 8 GB | 16 GB |
-| Spazio su disco | 6 GB con scheda NVIDIA · 2 GB senza | 10 GB |
-| Scheda video | facoltativa: NVIDIA con 4 GB di memoria e driver 527 o successivo | NVIDIA con 6 GB o più |
-| Rete | necessaria solo alla prima configurazione | — |
+| Operating system | Windows 10 64-bit (build 1809+) | Windows 11 |
+| Processor | x86-64 with AVX2, 4 cores | 8 cores or more |
+| Memory | 8 GB | 16 GB |
+| Disk space | 6 GB with an NVIDIA card · 2 GB without | 10 GB |
+| Graphics | optional: NVIDIA with 4 GB VRAM, driver 527 or newer | NVIDIA with 6 GB+ |
+| Network | only needed for the first-run setup | — |
 
-Lo spazio serve alle librerie di riconoscimento, che l'applicazione scarica una
-sola volta: circa 5,4 GB nella versione con accelerazione CUDA, circa 1,2 GB in
-quella per processore.
+The disk space is for the recognition libraries, downloaded once: about 5.4 GB
+for the CUDA build, about 1.2 GB for the CPU one.
 
-**Consumi misurati** durante l'elaborazione di un video 1920×1080:
+**Measured usage** while processing a 1920x1080 video:
 
-- memoria: circa 1,2 GB per il motore, più l'interfaccia
-- memoria video: circa 1,8 GB quando l'accelerazione è attiva
+- memory: about 1.2 GB for the engine, plus the interface
+- video memory: about 1.8 GB when GPU acceleration is active
 
-**Tempi indicativi** per 17 secondi di registrazione schermo a 1080p, con
-verifica finale attiva:
+**Indicative timings** for 17 seconds of 1080p screen recording, with the final
+verification enabled:
 
-| Computer | Tempo |
+| Machine | Time |
 |---|---|
-| Con scheda NVIDIA (RTX 4070 Ti) | circa 1 minuto |
-| Solo processore (Intel i7 12ª generazione) | circa 6 minuti |
+| With an NVIDIA card (RTX 4070 Ti) | about 1 minute |
+| CPU only (12th-gen Intel i7) | about 6 minutes |
 
-I fotogrammi identici al precedente non vengono rianalizzati: su una
-registrazione schermo il risparmio arriva all'80%, ed è ciò che rende
-l'elaborazione praticabile anche senza scheda dedicata. Su video in movimento
-continuo il risparmio non c'è, e i tempi salgono di conseguenza.
+Frames identical to the previous one are not analysed again: on screen
+recordings that saves up to 80% of the work, and it is what makes the tool
+practical without a dedicated GPU. On footage with continuous motion there is
+nothing to save, and timings rise accordingly.
 
-## Versione
+## Privacy
 
-Attuale: **1.1.0** — vedi la pagina [Rilasci](https://github.com/kuramalab/QA-Video-Redactor-Release/releases)
-per il registro delle modifiche.
+The video never leaves your machine: there is no upload, no telemetry, no
+account. The only network access is the one-time download of the components on
+first launch.
+
+## Version
+
+Current: **1.1.0** — see [Releases](https://github.com/kuramalab/QA-Video-Redactor-Release/releases) for the
+full changelog.
 
 ---
 
-Progetto e sviluppo: **Genny Sirianni** · kuramalab@gmail.com — KuramaLab
+Built by **Genny Sirianni** · kuramalab@gmail.com — KuramaLab
