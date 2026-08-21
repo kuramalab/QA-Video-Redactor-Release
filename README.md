@@ -80,7 +80,7 @@ first launch.
 
 ## Version
 
-Current: **1.1.0** — see [Releases](https://github.com/kuramalab/QA-Video-Redactor-Release/releases) for the
+Current: **1.2.0** — see [Releases](https://github.com/kuramalab/QA-Video-Redactor-Release/releases) for the
 full changelog.
 
 ---

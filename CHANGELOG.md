@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.2.0 — 21 August 2026
+
+**Automatic updates**
+
+- The app checks the public releases at startup and once an hour. When a new
+  version is out, a dialog shows what changed: update with one click, or postpone
+  and keep a discreet reminder in the header.
+- The download reports progress; when it finishes the installer starts and the
+  application closes itself.
+
+**Multiple languages**
+
+- Five languages: English, Italian, French, Spanish and German. On first launch
+  the system language is picked automatically; the flag selector in the header
+  changes it and the choice is remembered.
+- Messages coming from the engine are shown translated too, including the
+  processing stages and the data categories.
+
 ## 1.1.0 — 21 August 2026
 
 **Speed**
