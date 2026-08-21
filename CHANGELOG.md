@@ -1,5 +1,49 @@
 # Changelog
 
+## 1.3.0 — 21 August 2026
+
+**The engine starts without elevated rights**
+
+- The application failed to start its engine when launched normally: the check
+  “is the engine answering?” went through a full HTTP client, which hangs when
+  the program has no administrator rights. It is now a plain socket on a thread
+  with a hard deadline — on some machines the antivirus inspects even local
+  connections, and a closed port takes seconds to answer.
+- Waiting no longer watches the clock but the process: while the engine lives it
+  is worth waiting, and if it dies the app says so and points at `engine.log`,
+  which the shell now writes next to the components.
+- The bar used to sit at zero for half a minute at the start of the first video:
+  not the models loading, but the first inference tuning the GPU kernels. That
+  time is now spent while the service starts, as you pick a video.
+
+**Several videos at once**
+
+- Pick or drop more than one video. Each appears in a list and can be removed on
+  its own. While working you see the queue: the one being processed with its
+  bar, the others waiting. Cancel stops the whole queue.
+
+**Drag and drop**
+
+- Dropping a video onto the window now works. If the app runs as administrator
+  Windows forbids it, and the window explains that instead of looking inert.
+
+**Result**
+
+- “Save a copy elsewhere” opens the system dialog; “Open folder” shows the
+  result selected in the file manager. Deleting a job no longer removes the
+  result of a video you picked from disk — that file is yours.
+
+**Privacy, stated plainly**
+
+- A strip on the source step says the video never leaves your computer: no
+  upload, no account, no telemetry, so no personal data handed to third parties.
+
+**Interface**
+
+- The engine step is split into two tabs; redacted areas have rounded corners;
+  one click on Process starts exactly one job; the footer stays put like the
+  header; the history appears only on the result step.
+
 ## 1.2.2 — 21 August 2026
 
 **One click, one job**
