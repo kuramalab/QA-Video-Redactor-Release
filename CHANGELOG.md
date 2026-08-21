@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.2.2 — 21 August 2026
+
+**One click, one job**
+
+- The “Process” button stayed active until the engine replied: a second click in
+  that window started a second job on the same video, leaving two rows in the
+  history and two output files. The button now switches off the moment it is
+  clicked.
+- The engine defends itself too: a second request for the same video returns the
+  job already running instead of duplicating it.
+
+**Rounded corners**
+
+- Redacted areas are no longer sharp-cornered rectangles. The radius never
+  exceeds the safety margin, so the rounded corner eats into the margin only and
+  uncovers nothing; the edge is soft rather than jagged.
+
+**Clean uninstall**
+
+- The libraries downloaded on first launch live in the user's data folder, where
+  the uninstaller never looked: several gigabytes stayed behind. It now asks
+  whether to remove them once uninstalling is done, and suggests keeping them if
+  you plan to reinstall. Processed videos are never touched.
+
 ## 1.2.1 — 21 August 2026
 
 **Fix: setup stopped with “Access denied”**
