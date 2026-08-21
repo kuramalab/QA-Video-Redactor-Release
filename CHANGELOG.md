@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.3.1 — 21 August 2026
+
+**The startup screen tells the truth**
+
+- On the loading page the second and third items were hardcoded as not done and
+  never updated: “AI ready” could not light up even in principle. The screen now
+  asks the engine every second: the service lights up when it really answers,
+  the neural network when it has finished warming up, and only then does the
+  step-by-step flow appear.
+- The first video therefore starts at once, instead of sitting at zero while the
+  graphics card tunes its kernels.
+
+**Fixes**
+
+- The interface was still sending Italian precision and style values to the
+  engine, which refused the job. Besides fixing them, they are realigned on
+  startup with what the engine declares, so that kind of mismatch cannot happen
+  again.
+- When a job fails to start, the app stays on the Processing step where the
+  button was pressed: the Result step was promising an outcome that did not
+  exist.
+- The mascot's eyes are green before the engine is ready too.
+
+**Under the hood**
+
+- The migration of the code to English is complete: shell, engine, interface,
+  stylesheets, packaging scripts and release workflow. The text on screen stays
+  in the five languages, because that is content rather than code.
+
 ## 1.3.0 — 21 August 2026
 
 **The engine starts without elevated rights**
