@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.2 — 21 August 2026
+
+**Signed executable**
+
+- The application and the installer are signed with a KuramaLab certificate. It
+  is self-signed, so it only counts on machines where it has been trusted: there
+  Windows names the publisher instead of saying “unknown”. Everywhere else
+  nothing changes, and no antivirus is convinced by it - the first-launch scan
+  stays until there is a recognised certificate.
+- Signing is optional: without a certificate the build carries on and still
+  produces a working product.
+
 ## 1.3.1 — 21 August 2026
 
 **The startup screen tells the truth**
