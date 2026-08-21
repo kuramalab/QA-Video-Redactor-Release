@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.3.3 — 21 August 2026
+
+**Placeholders left showing**
+
+- The update panel read “Version {version} is available” with the placeholder in
+  place of the number: the migration moved the code to English but not the
+  placeholders inside the text, so they stopped being filled.
+- Every case of the same kind is fixed, not only the one that was noticed: the
+  unrecognised file name, the installed version in the update panel and the
+  frame counter in the processing phases.
+- Durations follow the chosen language: they were assembled by hand in the code,
+  so four translations out of five were never used.
+
+**Icon**
+
+- The mascot's eyes are green in the application icon too.
+
 ## 1.3.2 — 21 August 2026
 
 **Signed executable**
