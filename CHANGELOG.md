@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.2.1 — 21 August 2026
+
+**Fix: setup stopped with “Access denied”**
+
+- First-run setup wrote its components inside the program folder. When the app
+  is installed in `C:\Program Files`, Windows denies writing to anyone who is
+  not an administrator, and preparation stopped with
+  “Access denied (os error 5)”.
+- Program and components now live in two separate places: the code stays where
+  the installer puts it, while the interpreter, libraries and models — several
+  gigabytes, and belonging to whoever uses the app — go into the user's data
+  folder. Where the program folder is writable, as in a portable copy,
+  everything stays together as before.
+
+**Right-click**
+
+- The browser menu (reload, view source, inspect) is gone: it makes no sense in
+  an application and opened doors that serve no purpose.
+- Text fields get a reduced menu instead — Cut, Copy, Paste, Select all —
+  translated into all five languages, with inapplicable entries greyed out.
+
 ## 1.2.0 — 21 August 2026
 
 **Automatic updates**
