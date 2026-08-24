@@ -1,33 +1,57 @@
-**Faster, doing exactly the same work**
+**The computer no longer falls asleep on the job**
 
-- A full recording that used to take 72 minutes now takes 44. Measured on the
-  same file with the same settings, start to finish, not estimated.
-- The reading spreads across the processor's cores instead of saturating one
-  and leaving the graphics card idle. How many cores it uses is worked out from
-  the machine it is running on: all of them except two, which stay with the
-  operating system, and never more than the free video memory can hold.
-- Blurring is computed on a small copy of the region and scaled back up. The
-  result is indistinguishable and the masking step is dozens of times cheaper.
-- The final verification reads only the frames it actually looks at, in
-  parallel, instead of decoding every frame in the video.
-- Nothing was changed on trust: every step was compared against the previous
-  engine on the same clip. Same detections, down to the single one; same
-  residuals.
+- A long video is exactly the work nobody sits and watches, and Windows was
+  putting the machine to sleep while the engine was still going. Measured on a
+  real run: a job made 1.6% of progress in eight hours of standby, and the run
+  started after it was killed outright by the display driver on the way out.
+  While a video is being processed the computer is now told the work matters.
+  The screen is still free to turn off.
 
-**Frames per second**
+**Masks follow the text instead of covering the trail it left**
 
-- The Engine step now offers a frame rate. Screen recordings often run at 60 or
-  70 frames per second and repeat almost everything: choosing 25 does the same
-  job in a third less time, and the finished video plays at the chosen rate.
-- Left on "Original", nothing changes.
+- On a page that scrolls, every position a name passed through used to be
+  merged into one shape and that shape was covered in every frame of the scene:
+  a whole column blurred from top to bottom, the rest of the page unreadable.
+  Each sighting now continues the one before it, and the mask travels with the
+  text.
+- The movement is measured, not guessed: the picture is cut into overlapping
+  bands and each is asked how far it has moved, which costs a fraction of a
+  millisecond against the 385 ms a reading costs. A phone page does not move as
+  one piece — the bars stay while the content scrolls — so where two bands
+  disagree the mask covers both answers rather than betting on one.
+- Measured on a test recording scrolled at 300, 800, 2000 and 4000 pixels a
+  second: the name stayed covered in every one of the 810 frames, while the
+  part of the picture covered for nothing fell from 17% to 1.3%. On a real
+  recording the worst case fell from 6.5% to 1.8%, with the same 75 detections
+  and the same zero residuals as before.
+- Every threshold is now a share of the frame instead of a number of pixels, so
+  the same code suits a phone clip and a 4K screen. Verified at three
+  resolutions of the same video: same result on all three.
 
-**Signature**
+**Video memory**
 
-- The installer and the executable are signed again. A previous build reported
-  the signing as failed when it had actually succeeded: the check was reading
-  whether this machine trusted the certificate rather than whether the file
-  carried it.
+- How many frames are read at once is worked out from what a reading really
+  costs on frames of that size — 1.3 GB on a 1080x2340 page, measured, against
+  the 700 MB previously assumed. Four readings at a time instead of six: 7% of
+  speed given up for half the memory.
+- The process is now held under a ceiling. Past it an allocation is refused
+  rather than served out of system memory, which does not fail the job but
+  makes it crawl. A reading that does not fit waits for the others and goes on
+  its own.
+- The full recording went from 43.7 to 37.8 minutes, reading fewer frames at a
+  time: the card no longer spends the run chasing memory it does not have.
+
+**Progress that moves**
+
+- The engine reads frames in blocks and said nothing until a whole block was
+  done — eight seconds of silence at a time, which reads as a program that has
+  stopped. It now reports every reading as it lands: one message every 0.22
+  seconds instead of every 8, and the bar never walks backwards.
+- The elapsed seconds are counted by the interface, one after another, instead
+  of arriving in leaps whenever the engine had something to say.
+- Spreading the masks across the scenes was the one stretch with nothing to
+  read, and therefore silent. It reports its own progress too.
 
 ---
 
-Download **QA Video Redactor 1.4.0 Setup.exe** below. The installer is a few megabytes: on first launch the app downloads the components that match your computer.
+Download **QA Video Redactor 1.4.1 Setup.exe** below. The installer is a few megabytes: on first launch the app downloads the components that match your computer.
