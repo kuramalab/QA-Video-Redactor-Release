@@ -1,57 +1,45 @@
-**The computer no longer falls asleep on the job**
+**A recording that took 72 minutes now takes 15**
 
-- A long video is exactly the work nobody sits and watches, and Windows was
-  putting the machine to sleep while the engine was still going. Measured on a
-  real run: a job made 1.6% of progress in eight hours of standby, and the run
-  started after it was killed outright by the display driver on the way out.
-  While a video is being processed the computer is now told the work matters.
-  The screen is still free to turn off.
+- Measured end to end on the same file with the same settings, across four
+  versions: 72.4 minutes, then 43.7, then 37.0, now 14.9. Same detections, same
+  residuals, nothing given up.
+- The engine no longer reads what it has already read. It remembers what is on
+  screen, carries it to where the picture has moved it, and reads again only
+  the strips that have changed — the one that has just scrolled into view, or
+  the part that changed on its own. Measured on a real recording, 85% of
+  everything read had already been read in the frame before and had only moved.
+- Decoding and reading now happen at the same time. They used to take turns:
+  while the card read a block the processor sat idle, and the other way round —
+  11% of the processor and 55% of the card, neither of them the bottleneck.
+- The final check looks twelve times a second instead of every second frame.
+  On a phone recording at 71 frames a second that meant 35 checks a second,
+  three times what a 25 fps video has always had, for a protection nobody asked
+  to be three times denser. Anything legible for a twelfth of a second is still
+  seen, and at Maximum precision every frame is still read.
 
-**Masks follow the text instead of covering the trail it left**
+**A name half typed has to be half the name**
 
-- On a page that scrolls, every position a name passed through used to be
-  merged into one shape and that shape was covered in every frame of the scene:
-  a whole column blurred from top to bottom, the rest of the page unreadable.
-  Each sighting now continues the one before it, and the mask travels with the
-  text.
-- The movement is measured, not guessed: the picture is cut into overlapping
-  bands and each is asked how far it has moved, which costs a fraction of a
-  millisecond against the 385 ms a reading costs. A phone page does not move as
-  one piece — the bars stay while the content scrolls — so where two bands
-  disagree the mask covers both answers rather than betting on one.
-- Measured on a test recording scrolled at 300, 800, 2000 and 4000 pixels a
-  second: the name stayed covered in every one of the 810 frames, while the
-  part of the picture covered for nothing fell from 17% to 1.3%. On a real
-  recording the worst case fell from 6.5% to 1.8%, with the same 75 detections
-  and the same zero residuals as before.
-- Every threshold is now a share of the frame instead of a number of pixels, so
-  the same code suits a phone clip and a 4K screen. Verified at three
-  resolutions of the same video: same result on all three.
+- Covering a name while it is being entered used to start at three characters.
+  With the term "Genny Sirianni" that claimed every "gen" on the page — and on
+  a Dutch page "gen" is everywhere, wherever a word breaks across two lines.
+  Measured on a real recording: all 75 detections in a twenty second stretch
+  were that fragment, and not one of them was the name.
+- A beginning now has to be a real share of what it begins, and the words of a
+  term are recognised in their own right, so a first name on its own stays
+  covered while an unrelated syllable no longer is.
 
-**Video memory**
+**The update dialog opens in the middle of the window**
 
-- How many frames are read at once is worked out from what a reading really
-  costs on frames of that size — 1.3 GB on a 1080x2340 page, measured, against
-  the 700 MB previously assumed. Four readings at a time instead of six: 7% of
-  speed given up for half the memory.
-- The process is now held under a ceiling. Past it an allocation is refused
-  rather than served out of system memory, which does not fail the job but
-  makes it crawl. A reading that does not fit waits for the others and goes on
-  its own.
-- The full recording went from 43.7 to 37.8 minutes, reading fewer frames at a
-  time: the card no longer spends the run chasing memory it does not have.
-
-**Progress that moves**
-
-- The engine reads frames in blocks and said nothing until a whole block was
-  done — eight seconds of silence at a time, which reads as a program that has
-  stopped. It now reports every reading as it lands: one message every 0.22
-  seconds instead of every 8, and the bar never walks backwards.
-- The elapsed seconds are counted by the interface, one after another, instead
-  of arriving in leaps whenever the engine had something to say.
-- Spreading the masks across the scenes was the one stretch with nothing to
-  read, and therefore silent. It reports its own progress too.
+- It was opening in the top left corner. The code asked for a style the
+  stylesheet no longer had under that name, and a missing style neither fails
+  nor warns: the element is simply drawn without it.
+- Six more had gone the same way, and they are all back: the language menu, the
+  tabs of the Engine step, the right-click menu, the close button of the
+  privacy strip, and the mascot with its shadow. The colours of the job states
+  had never once applied.
+- The build now checks that every style the interface asks for exists, so this
+  particular silence cannot come back.
 
 ---
 
-Download **QA Video Redactor 1.4.1 Setup.exe** below. The installer is a few megabytes: on first launch the app downloads the components that match your computer.
+Download **QA Video Redactor 1.4.2 Setup.exe** below. The installer is a few megabytes: on first launch the app downloads the components that match your computer.
