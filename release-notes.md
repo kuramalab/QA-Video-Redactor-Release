@@ -1,21 +1,15 @@
-**A brand name is no longer mistaken for someone's address**
+**The visual module and the text readers no longer kill each other**
 
-- A registered-trademark sign next to a brand name - itsme(R), in the report
-  that led here - is sometimes read as an @ by the recogniser, and the engine
-  then learned the brand as a "secret" and masked it through the whole video.
-  Nothing is learned from an address that is not whole any more: name, provider
-  and extension, all three. A half-typed address is still covered where it
-  stands - it just teaches nothing.
-
-**The visual module works on installed copies**
-
-- Asking for a logo failed with a complaint about the model file: the weights
-  were never shipped and never downloaded, so no installed machine had them,
-  and the path they were looked for under carried a Windows long-path prefix
-  that the loader refused. The weights now download themselves the first time
-  the visual module is asked for - 54 MB, once - and the paths are clean.
-  Proven from an empty folder before publishing.
+- A job with a logo to find died on its first visual detection: "operation not
+  permitted when stream is capturing". The visual module runs through torch,
+  the text readers through onnxruntime, and the two do not share the graphics
+  card gracefully - when one is capturing a CUDA stream and the other launches,
+  the launch dies. Reproduced deterministically before fixing.
+- The card now takes turns: any number of readings still run together, exactly
+  as before; the visual module waits for them and holds the card alone; the
+  readings queue behind it. A job without the visual module is untouched -
+  measured, same time to the second.
 
 ---
 
-Download **QA Video Redactor 1.6.2 Setup.exe** below. The installer is a few megabytes: on first launch the app downloads the components that match your computer.
+Download **QA Video Redactor 1.6.3 Setup.exe** below. The installer is a few megabytes: on first launch the app downloads the components that match your computer.
