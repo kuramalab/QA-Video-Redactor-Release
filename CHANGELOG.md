@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.6.7 — 27 August 2026
+
+**The four columns read as columns**
+
+- Outcome, date, duration and author now sit on one light block, cut by
+  one-pixel lines, so their boundaries are visible at a glance. One block
+  rather than four boxes per row: twenty outlined cells on five cards read as
+  boxes to count, and a short duration alone in its own box read as a missing
+  field. The outcome colours stay legible on the new ground, and the alignment
+  is untouched - verified to the pixel, hover included.
+
 ## 1.6.6 — 27 August 2026
 
 **The history reads as columns again**
