@@ -4,7 +4,7 @@ judged by an independent reading, not by the engine's own word.
 
 **A logo can be given as an image**
 
-- Words cannot describe a mark: "Unieuro logo" finds the written name and walks
+- Words cannot describe a mark: "Acme Corp logo" finds the written name and walks
   past the orange glyph standing alone in a navigation bar (0:19). A new field
   in "What to obscure" takes the logo's image; the engine derives its imprint
   at seven sizes and looks for exactly that in every analysed frame - a

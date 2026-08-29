@@ -8,7 +8,7 @@ judged by an independent reading, not by the engine's own word.
 
 **A logo can be given as an image**
 
-- Words cannot describe a mark: "Unieuro logo" finds the written name and walks
+- Words cannot describe a mark: "Acme Corp logo" finds the written name and walks
   past the orange glyph standing alone in a navigation bar (0:19). A new field
   in "What to obscure" takes the logo's image; the engine derives its imprint
   at seven sizes and looks for exactly that in every analysed frame - a
@@ -209,7 +209,7 @@ judged by an independent reading, not by the engine's own word.
 
 **A brand name is no longer mistaken for someone's address**
 
-- A registered-trademark sign next to a brand name - itsme(R), in the report
+- A registered-trademark sign next to a brand name - Acme(R), in the report
   that led here - is sometimes read as an @ by the recogniser, and the engine
   then learned the brand as a "secret" and masked it through the whole video.
   Nothing is learned from an address that is not whole any more: name, provider
@@ -411,8 +411,8 @@ judged by an independent reading, not by the engine's own word.
 **A name half typed has to be half the name**
 
 - Covering a name while it is being entered used to start at three characters.
-  With the term "Genny Sirianni" that claimed every "gen" on the page — and on
-  a Dutch page "gen" is everywhere, wherever a word breaks across two lines.
+  With the term "Mario Rossi" that claimed every "mar" on the page — and
+  "mar" turns up everywhere, wherever a word breaks across two lines.
   Measured on a real recording: all 75 detections in a twenty second stretch
   were that fragment, and not one of them was the name.
 - A beginning now has to be a real share of what it begins, and the words of a
