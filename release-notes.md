@@ -1,36 +1,25 @@
-**An eye on every row of the history**
+**Room on the card, and rescue rounds that read only what they touched**
 
-- Each row carries an eye button beside "Open folder": on a running job it
-  opens the processing page - the same one shown when the job is started,
-  with the phase, the percentage and the finish estimate - on a finished one
-  it opens the report of that file. Rows written before 1.8.1 open too, with
-  what was kept for them: the counts, the preview and the download when the
-  file is still there. From either page a button leads back to the history.
-- The bar no longer stands still after the writing. The final check and its
-  rescue rounds rewrite and re-read the whole file, which takes as long as
-  the writing did; they now walk the bar from 88% to 99% frame by frame,
-  with the round they are in written beside it.
+- The engine now takes at most 80% of the card's memory, whatever the card:
+  the rest stays free for the screen and for everything else drawing on it.
+  Beyond that line a card does not fail, it quietly spills into system
+  memory over the bus and everything slows to a crawl - measured by hand
+  with large models on a 12 GB card, and seen here at 97% in use. The share
+  is relative, so an 8 GB card and a 24 GB one keep the same proportion.
+- The first rescue round reads the whole rewritten file, as before, since a
+  re-encoding can make something legible anywhere. The rounds after it read
+  only around what they have just covered. Measured on the reference
+  recording: rounds two and three went from 2 min 35 s to 1 min each, the
+  whole job from 16 min 16 s to 12 min 55 s, with the same result - no text
+  left legible.
 
-**The rescue follows the text**
+**Screenshots with the notes**
 
-- What the final check finds is covered from a little before to a little
-  after - but the cover stood still, and a surname scrolling at thirty
-  pixels a frame walked out of it: measured, it stayed legible after three
-  rounds. The rescue now carries each cover with the movement the engine
-  measured, frame by frame, the way the masks themselves are carried.
-- The final check gives the benefit of the doubt only to the tiny logo
-  imprint; a lower bar for the big ones turned every orange button of a
-  shop into a "logo" - 316 on one recording.
-
-**A phone recording keeps its shape**
-
-- A file whose pixels are not square - 1080x1080 displayed as 498x1080, as
-  some phones record - came out twice as wide: "everything stretched". The
-  finished file now declares the same pixel shape the source did.
-- Plain blur let a line of text be read through it. It now shrinks the area
-  until a glyph is a few pixels tall before blurring, and reads as nothing;
-  it still looks soft, unlike the pixelation.
+- A note in the history can carry images: paste a screenshot straight into
+  the note, drop it there, or pick files with the paperclip. The row shows
+  how many it has; "show all" lays them out as thumbnails, and one click
+  opens them full size. Whoever has the history open sees them arrive.
 
 ---
 
-Download **QA Video Redactor 1.8.2 Setup.exe** below. The installer is a few megabytes: on first launch the app downloads the components that match your computer.
+Download **QA Video Redactor 1.8.3 Setup.exe** below. The installer is a few megabytes: on first launch the app downloads the components that match your computer.
