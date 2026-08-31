@@ -1,16 +1,25 @@
-**The remote page is always the current one**
+**From the morning's field reports, each one reproduced and closed**
 
-- A browser on the network could keep showing an old page for days after an
-  update - nothing ever told it to ask again - so the attachments, the eye
-  and everything newer seemed missing from the remote side while the desktop
-  showed them. The page is now marked "ask before using" (one free 304 when
-  nothing changed) and the hashed bundles are cached for a year: new version,
-  new names. One forced refresh (Ctrl+F5) is needed once; never again after.
-- Over the network the settings show what belongs to the guest - language,
-  theme, personal defaults - and no longer the host's business: updates,
-  system paths, keep-awake and the output folder stay on the computer that
-  hosts the engine.
+- A typed card number stood legible for six seconds because the page had
+  scrolled and no reading said "payment" any more: once seen, the payment
+  screen now stays one for fifteen seconds either side, and the digits typed
+  under the keyboard are covered while the label is off screen.
+- A protected name written wrong by one letter - "sirianji" - walked past
+  the exact search: a term of seven letters or more is now recognised with
+  one letter astray, unless the stray letter is the Italian ending or a
+  vowel for a vowel, which is a different word ("ferrara" stays visible
+  when "ferrari" is protected - all ten false friends measured stay).
+- The logo can be given as SEVERAL images, one per colour and style of the
+  mark (up to five): a black mark on file does not find its red or white
+  twin, and now it does not have to. Small marks are hunted on the full
+  picture - shrunk to half, a 31-pixel glyph scored like any rounded
+  corner - and the search never holds the scan hostage: when it falls
+  behind it skips a frame, the tracks bridge it, the final check reads
+  every written frame anyway.
+- The logo images are checked the moment they arrive - a file that does not
+  open as an image refuses the whole batch with a clear message, instead of
+  a run that silently hunts three variants of four.
 
 ---
 
-Download **QA Video Redactor 1.8.7 Setup.exe** below. The installer is a few megabytes: on first launch the app downloads the components that match your computer.
+Download **QA Video Redactor 1.8.8 Setup.exe** below. The installer is a few megabytes: on first launch the app downloads the components that match your computer.
