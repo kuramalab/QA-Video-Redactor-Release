@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.8.10 — 1 September 2026
+
+**Two touches on the history card**
+
+- While a job runs, its bar stretches across the whole row and the
+  percentage sits right beside the eye.
+- The note and its tools - show all, edit, attachments, attach - share one
+  line: the note trims itself with an ellipsis rather than pushing them away.
+
 ## 1.8.9 — 31 August 2026
 
 **The scroll does not undress a payment screen any more**
