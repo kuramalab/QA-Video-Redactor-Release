@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.8.12 — 1 September 2026
+
+**One touch on the history card**
+
+- The outcome pill (running, completed, error) now opens the right-hand
+  block, just left of the date, instead of trailing the file name.
+
 ## 1.8.11 — 1 September 2026
 
 **After a bad release for one tester: measured, apologised, corrected**
