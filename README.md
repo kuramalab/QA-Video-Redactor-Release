@@ -95,7 +95,7 @@ nothing to save, and timings rise accordingly.
 
 ## Version
 
-Current: **1.8.12** - see [Releases](https://github.com/kuramalab/QA-Video-Redactor-Release/releases) for the
+Current: **1.8.13** - see [Releases](https://github.com/kuramalab/QA-Video-Redactor-Release/releases) for the
 full changelog. The app checks for new versions on its own and offers to update.
 
 ---
